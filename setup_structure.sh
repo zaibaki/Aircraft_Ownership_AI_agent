@@ -1,50 +1,39 @@
 #!/bin/bash
 
-# Create top-level files
-touch README.md requirements.txt main.py run_agent.py
+# Top-level files
+touch main.py requirements.txt README.md
 
-# Create config folder and files
+# Config
 mkdir -p config
-touch config/__init__.py config/settings.py config/prompts.py
+touch config/__init__.py config/settings.py
 
-# Create data folders and FAA DB files
-mkdir -p data/faa_db data/cache
-touch data/faa_db/MASTER.txt \
-      data/faa_db/ACFTREF.txt \
-      data/faa_db/ENGINE.txt \
-      data/faa_db/DEALER.txt \
-      data/faa_db/DEREG.txt \
-      data/faa_db/DOCINDEX.txt \
-      data/faa_db/RESERVED.txt
+# Agent
+mkdir -p agent
+touch agent/__init__.py agent/graph.py agent/prompts.py
 
-# Create tools folder and files
+# Tools
 mkdir -p tools
 touch tools/__init__.py \
-      tools/faa_tools.py \
-      tools/corporate_tools.py \
-      tools/contact_tools.py \
-      tools/flight_tools.py \
-      tools/human_assistance.py
+      tools/base.py \
+      tools/faa_scraper.py \
+      tools/flightaware_scraper.py \
+      tools/tavily_search.py \
+      tools/ownership_analyzer.py
 
-# Create agents folder and files
-mkdir -p agents
-touch agents/__init__.py \
-      agents/state.py \
-      agents/nodes.py \
-      agents/graph.py
+# Models
+mkdir -p models
+touch models/__init__.py models/schemas.py
 
-# Create parsers folder and files
-mkdir -p parsers
-touch parsers/__init__.py \
-      parsers/faa_parser.py \
-      parsers/corporate_parser.py \
-      parsers/contact_parser.py
-
-# Create utils folder and files
+# Utils
 mkdir -p utils
 touch utils/__init__.py \
-      utils/cache_manager.py \
-      utils/data_validator.py \
-      utils/confidence_scorer.py
+      utils/logging_config.py \
+      utils/web_utils.py
 
-echo "✅ Project structure created successfully!"
+# Tests
+mkdir -p tests
+touch tests/__init__.py \
+      tests/test_tools.py \
+      tests/test_agent.py
+
+echo "✅ Project structure for aircraft_research_agent created successfully!"
