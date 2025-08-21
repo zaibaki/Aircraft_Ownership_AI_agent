@@ -40,7 +40,7 @@ from config.langsmith_config import setup_langsmith_optimized
 setup_langsmith_optimized()
 
 # Import the fixed graph
-from agents.graph_fixed import create_aircraft_research_graph
+from agents.graph import create_aircraft_research_graph
 from agents.state import AircraftResearchState
 
 def format_research_output(result: AircraftResearchState) -> str:

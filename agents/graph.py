@@ -12,7 +12,7 @@ from langgraph.prebuilt import ToolNode
 import logging
 
 from agents.state import AircraftResearchState
-from tools.faa_tools_fixed import faa_database_lookup, faa_web_scraper
+from tools.faa_tools import faa_database_lookup, faa_web_scraper
 from tools.corporate_tools import opencorporates_search
 from config.settings import OPENAI_API_KEY
 from config.prompts import SYSTEM_PROMPT
