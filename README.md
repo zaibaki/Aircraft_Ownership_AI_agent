@@ -434,3 +434,9 @@ For issues and questions:
 - [ ] Support for corporate hierarchy analysis
 - [ ] API rate limiting and throttling
 - [ ] Database integration for result caching
+
+## Design
+## System Architecture
+
+![Aircraft Research Agent - System Architecture](system_diagram_.png)
+*Figure 1: Complete system architecture showing data flow, components, and deployment options*
