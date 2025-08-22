@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Aircraft Research Agent{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aviation-blue': '#1e40af',
+                        'aviation-gold': '#f59e0b',
+                        'aviation-dark': '#1f2937'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg border-b-4 border-aviation-blue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-plane text-aviation-blue text-2xl mr-3"></i>
+                    <span class="text-xl font-bold text-aviation-dark">Aircraft Research Agent</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-robot mr-2 text-aviation-blue"></i>
+                        <span>AI-Powered Ownership Intelligence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-aviation-dark text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Aircraft Research Agent</h3>
+                    <p class="text-gray-300">Advanced AI-powered aircraft ownership research using multiple data sources and intelligent analysis.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Data Sources</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><i class="fas fa-check-circle mr-2"></i>FAA Aircraft Registry</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>FlightAware Database</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Web Intelligence</li>
+                        <li><i class="fas fa-check-circle mr-2"></i>Business Entity Analysis</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Features</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li><i class="fas fa-brain mr-2"></i>AI Decision Maker ID</li>
+                        <li><i class="fas fa-shield-alt mr-2"></i>Data Verification</li>
+                        <li><i class="fas fa-link mr-2"></i>Evidence Tracking</li>
+                        <li><i class="fas fa-chart-line mr-2"></i>Confidence Scoring</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Aircraft Research Agent. Powered by LangGraph & OpenAI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/static/js/app.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

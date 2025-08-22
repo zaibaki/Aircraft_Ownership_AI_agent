@@ -1,39 +1,22 @@
 #!/bin/bash
 
 # Top-level files
-touch main.py requirements.txt README.md
+touch __init__.py main.py
 
-# Config
-mkdir -p config
-touch config/__init__.py config/settings.py
+# API
+mkdir -p api
+touch api/__init__.py api/routes.py
 
-# Agent
-mkdir -p agent
-touch agent/__init__.py agent/graph.py agent/prompts.py
+# Core
+mkdir -p core
+touch core/__init__.py core/config.py core/logging_config.py
 
-# Tools
-mkdir -p tools
-touch tools/__init__.py \
-      tools/base.py \
-      tools/faa_scraper.py \
-      tools/flightaware_scraper.py \
-      tools/tavily_search.py \
-      tools/ownership_analyzer.py
+# Services
+mkdir -p services
+touch services/__init__.py services/aircraft_service.py
 
-# Models
-mkdir -p models
-touch models/__init__.py models/schemas.py
+# Templates
+mkdir -p templates
+touch templates/base.html templates/index.html templates/result.html
 
-# Utils
-mkdir -p utils
-touch utils/__init__.py \
-      utils/logging_config.py \
-      utils/web_utils.py
-
-# Tests
-mkdir -p tests
-touch tests/__init__.py \
-      tests/test_tools.py \
-      tests/test_agent.py
-
-echo "✅ Project structure for aircraft_research_agent created successfully!"
+echo "✅ app/ structure created successfully!"

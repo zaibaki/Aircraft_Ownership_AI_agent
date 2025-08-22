@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block title %}Aircraft Research Agent - Find Aircraft Owners{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+        <div class="relative">
+            <h1 class="text-5xl font-bold text-aviation-dark mb-6">
+                <span class="bg-gradient-to-r from-aviation-blue to-indigo-600 bg-clip-text text-transparent">
+                    Aircraft Ownership Research
+                </span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Deploy advanced AI agents to uncover aircraft ownership information, decision makers, and contact details from multiple authoritative sources.
+            </p>
+        </div>
+    </div>
+
+    <!-- Search Form -->
+    <div class="bg-white rounded-3xl shadow-2xl p-8 mb-12 border border-gray-100">
+        <form id="searchForm" class="space-y-6">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-semibold text-aviation-dark mb-2">Enter Aircraft N-Number</h2>
+                <p class="text-gray-500">Example: N540JT, N123AB, or just 540JT</p>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <i class="fas fa-plane text-aviation-blue text-xl"></i>
+                </div>
+                <input 
+                    type="text" 
+                    id="nNumber" 
+                    name="n_number" 
+                    class="w-full pl-14 pr-4 py-4 text-lg border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-aviation-blue/20 focus:border-aviation-blue transition-all duration-200 outline-none" 
+                    placeholder="Enter N-Number (e.g., N540JT)"
+                    required
+                >
+            </div>
+            
+            <button 
+                type="submit" 
+                id="searchButton" 
+                class="w-full bg-gradient-to-r from-aviation-blue to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+                <span id="buttonText">
+                    <i class="fas fa-search mr-2"></i>
+                    Deploy AI Research Agents
+                </span>
+                <span id="loadingText" class="hidden">
+                    <i class="fas fa-spinner fa-spin mr-2"></i>
+                    <span id="loadingMessage">Initializing AI agents...</span>
+                </span>
+            </button>
+        </form>
+    </div>
+
+    <!-- Loading States Container -->
+    <div id="loadingContainer" class="hidden">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <div class="text-center">
+                <div class="relative mb-8">
+                    <div class="w-24 h-24 mx-auto">
+                        <div class="absolute inset-0 rounded-full border-4 border-aviation-blue/20"></div>
+                        <div class="absolute inset-0 rounded-full border-4 border-aviation-blue border-t-transparent animate-spin"></div>
+                        <div class="absolute inset-4 bg-aviation-blue/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-robot text-aviation-blue text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-semibold text-aviation-dark mb-4" id="loadingTitle">
+                    AI Agents Deployed
+                </h3>
+                <p class="text-lg text-gray-600 mb-8" id="loadingDescription">
+                    Our AI agents are working to find comprehensive ownership information...
+                </p>
+                
+                <!-- Progress Steps -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="step-item" data-step="1">
+                        <div class="step-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="step-text">
+                            <h4>FAA Registry</h4>
+                            <p>Scanning official records</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-icon">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <div class="step-text">
+                            <h4>FlightAware</h4>
+                            <p>Analyzing flight data</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="step-text">
+                            <h4>Web Intelligence</h4>
+                            <p>Gathering contact info</p>
+                        </div>
+                    </div>
+                    <div class="step-item" data-step="4">
+                        <div class="step-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="step-text">
+                            <h4>AI Analysis</h4>
+                            <p>Identifying decision makers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100">
+            <div class="text-aviation-blue text-3xl mb-4">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-aviation-dark mb-2">Verified Data</h3>
+            <p class="text-gray-600">Cross-referenced information from multiple authoritative aviation databases and public records.</p>
+        </div>
+        
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100">
+            <div class="text-aviation-blue text-3xl mb-4">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-aviation-dark mb-2">Decision Makers</h3>
+            <p class="text-gray-600">AI-powered analysis to identify real decision makers behind shell companies and LLCs.</p>
+        </div>
+        
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100">
+            <div class="text-aviation-blue text-3xl mb-4">
+                <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-aviation-dark mb-2">Real-time Results</h3>
+            <p class="text-gray-600">On-demand research with live web scraping and instant AI analysis for up-to-date information.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Loading messages for different stages
+const loadingMessages = [
+    "Deploying AI research agents...",
+    "Scanning FAA aircraft registry...",
+    "Analyzing FlightAware data...",
+    "Gathering web intelligence...",
+    "Identifying decision makers...",
+    "Cross-referencing business entities...",
+    "Extracting contact information...",
+    "Calculating confidence scores...",
+    "Finalizing comprehensive report..."
+];
+
+let messageIndex = 0;
+let loadingInterval;
+
+document.getElementById('searchForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const nNumber = document.getElementById('nNumber').value.trim();
+    if (!nNumber) return;
+    
+    // Show loading state
+    showLoadingState();
+    
+    // Start cycling through loading messages
+    startLoadingMessages();
+    
+    try {
+        const formData = new FormData();
+        formData.append('n_number', nNumber);
+        
+        const response = await fetch('/search', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Redirect to results page
+            window.location.href = `/result/${nNumber}`;
+        } else {
+            throw new Error(result.error || 'Search failed');
+        }
+        
+    } catch (error) {
+        hideLoadingState();
+        alert('Error: ' + error.message);
+    }
+});
+
+function showLoadingState() {
+    document.getElementById('searchForm').style.display = 'none';
+    document.getElementById('loadingContainer').classList.remove('hidden');
+    
+    // Animate progress steps
+    animateProgressSteps();
+}
+
+function hideLoadingState() {
+    document.getElementById('searchForm').style.display = 'block';
+    document.getElementById('loadingContainer').classList.add('hidden');
+    clearInterval(loadingInterval);
+}
+
+function startLoadingMessages() {
+    messageIndex = 0;
+    loadingInterval = setInterval(() => {
+        const messageElement = document.getElementById('loadingDescription');
+        messageElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            messageElement.textContent = loadingMessages[messageIndex % loadingMessages.length];
+            messageElement.style.opacity = '1';
+            messageIndex++;
+        }, 300);
+    }, 2000);
+}
+
+function animateProgressSteps() {
+    const steps = document.querySelectorAll('.step-item');
+    steps.forEach((step, index) => {
+        setTimeout(() => {
+            step.classList.add('active');
+        }, index * 1000);
+    });
+}
+</script>
+{% endblock %}

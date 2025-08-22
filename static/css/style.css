@@ -1,0 +1,78 @@
+.step-item {
+    @apply p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-500 opacity-60;
+}
+
+.step-item.active {
+    @apply border-aviation-blue bg-aviation-blue/5 opacity-100 transform scale-105;
+}
+
+.step-icon {
+    @apply w-12 h-12 mx-auto mb-3 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 transition-all duration-500;
+}
+
+.step-item.active .step-icon {
+    @apply bg-aviation-blue text-white;
+}
+
+.step-text h4 {
+    @apply font-semibold text-gray-700 mb-1;
+}
+
+.step-item.active .step-text h4 {
+    @apply text-aviation-blue;
+}
+
+.step-text p {
+    @apply text-sm text-gray-500;
+}
+
+.step-item.active .step-text p {
+    @apply text-gray-700;
+}
+
+.research-content {
+    @apply text-gray-700;
+}
+
+.research-content h1,
+.research-content h2,
+.research-content h3 {
+    @apply text-aviation-dark font-semibold mb-4;
+}
+
+.research-content h1 {
+    @apply text-2xl;
+}
+
+.research-content h2 {
+    @apply text-xl;
+}
+
+.research-content h3 {
+    @apply text-lg;
+}
+
+.research-content ul,
+.research-content ol {
+    @apply ml-6 mb-4 space-y-2;
+}
+
+.research-content li {
+    @apply text-gray-600;
+}
+
+.research-content strong {
+    @apply text-aviation-dark font-semibold;
+}
+
+.research-content a {
+    @apply text-aviation-blue hover:underline;
+}
+
+.research-content code {
+    @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+}
+
+.research-content blockquote {
+    @apply border-l-4 border-aviation-blue pl-4 italic text-gray-600 my-4;
+}
